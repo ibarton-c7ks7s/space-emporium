@@ -33,26 +33,24 @@ const App = React.createClass({
   render() {
     const products = this.state.products.map(function (product) {
       return (
-        <li key={product.id}>
+        <div key={product.id} className="ship">
           <Link to={`/${product.id}`}>
-            <div className="ship--image"><img src={`/images/${product.id}.jpg`} width="300"/></div>
+            <div className="ship--image"><img src={`/images/${product.id}.jpg`}/></div>
             <div className="ship--name">{product.name}</div>
           </Link>
-        </li>
+        </div>
       )
     })
 
     return (
-      <div className="App">
-        <div className="ProductList">
-          <ul>
-            {products}
-          </ul>
+      <section className="content">
+        <header>
+          <div className="logo">Watto's Starship Emporium</div>
+        </header>
+        <div className="ships">
+          {products}
         </div>
-        <div className="Content">
-          {this.props.children}
-        </div>
-      </div>
+      </section>
     )
   }
 })
