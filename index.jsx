@@ -105,11 +105,25 @@ const Product = withRouter(
 
       if (product) {
         return (
-          <div>
-            <Link to="/">Home</Link>
-            <div className="Product">
-              <img height="50" src={image} />
-              <h3>{product.name}</h3>
+          <div className="product">
+            <Link to="/"><i className="material-icons">arrow_back</i></Link>
+            <div className="product--overview">
+              <div className="product--image"><img src={image}/></div>
+              <div className="product--name">{product.name}</div>
+              <div className="product--manufacturer">Manufacturer: {product.manufacturer}</div>
+              <div className="product--class">Class: {product.class}</div>
+            </div>
+            <div className="product--specs">
+              <div className="specs--title">Technical Specs:</div>
+              <div className="product--length">Length: {product.techspecs['length']}</div>
+              <div className="product--maxaccel">Max Accel: {product.techspecs['maxaccel']}</div>
+              <div className="product--mglt">MGLT: {product.techspecs['MGLT']}</div>
+              <div className="product--maxatmosphericspeed">Max Atmospheric Speed: {product.techspecs['maxatmosphericspeed']}</div>
+              <div className="product--hull">Hull: {product.techspecs['hull']}</div>
+              <div className="product--sensor">Sensor: {product.techspecs['sensor']}</div>
+              <div className="product--targeting">Targeting: {product.techspecs['targeting']}</div>
+              <div className="product--armament">Armament: {product.techspecs['armament']}</div>
+              <div className="product--communications">Communications: {product.techspecs['communications']}</div>
             </div>
           </div>
         )
