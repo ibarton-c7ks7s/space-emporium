@@ -20,6 +20,7 @@ const ProductStore = {
       _products = products;
 
       ProductStore.notifyChange()
+      console.log('loaded');
     })
   },
 

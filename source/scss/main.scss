@@ -5,6 +5,10 @@ html, body {
   width: 100%;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   background: url(../images/background.jpg) bottom center no-repeat;
   background-attachment: fixed;
@@ -16,6 +20,12 @@ body {
   font-family: 'Audiowide', cursive;
   font-variant: small-caps;
   overflow: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 #app {
@@ -115,5 +125,83 @@ header {
         min-width: 100%;
       }
     }
+  }
+}
+
+.product {
+  font-size: 0;
+  text-align: center;
+  header {
+    text-align: left;
+    font-size: 25px;
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .material-icons {
+      font-size: 1.2em;
+      vertical-align: middle;
+      margin-right: 0.3em;
+    }
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  &--image, &--details {
+    display: inline-block;
+    vertical-align: top;
+  }
+  &--details {
+    max-width: 505px;
+    margin: 0 15px;
+    font-size: 15px;
+    @media screen and (max-width: 640px) {
+      max-width: 100%;
+      margin: 0 auto 15px;
+      width: 95%;
+    }
+    @media screen and (max-width: 540px) {
+      font-size: 2.777vw;
+    }
+    @media screen and (max-width: 450px) {
+      font-size: 12.4965px;
+    }
+  }
+  &--image {
+    max-width: 800px;
+    margin-bottom: 15px;
+    width: 95%;
+  }
+  &--overview {
+    background: rgba(56, 54, 53, 0.9);
+    color: #ffffff;
+    padding: 1em;
+    margin-bottom: 1em;
+  }
+  &--name {
+    font-size: 2em;
+    @media screen and (max-width: 450px) {
+      font-size: 1.6em;
+    }
+  }
+  &--manufacturer {
+
+  }
+  &--class {
+
+  }
+  &--specs {
+    background: rgba(56, 54, 53, 0.9);
+    color: #ffffff;
+    padding: 1em;
+    text-align: left;
+    *:not(.specs--title) {
+      padding: 0.4em 0.5em 0.4em 1em;
+    }
+  }
+  .specs--title {
+    font-size: 1.5em;
+    padding-bottom: 0.5em;
   }
 }
