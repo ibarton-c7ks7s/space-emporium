@@ -12,15 +12,18 @@ const ProductStore = {
 
     _initCalled = true
 
-    getJSON(API, function (err, res) {
-      const products = res.products.map(product => {
+    fetch(API).then(response => {
+      return response.json();
+    }).then(json => {
+      const products = json.products.map(product => {
         product.id = product.name.toLowerCase().split(' ').join('-');
         return product;
       });
       _products = products;
 
-      ProductStore.notifyChange()
-      console.log('loaded');
+      ProductStore.notifyChange();
+    }).catch(err => {
+      console.log(err);
     })
   },
 
@@ -57,20 +60,4 @@ const ProductStore = {
 
 }
 
-localStorage.token = localStorage.token || (Date.now()*Math.random())
-
-function getJSON(url, cb) {
-  const req = new XMLHttpRequest()
-  req.onload = function () {
-    if (req.status === 404) {
-      cb(new Error('not found'))
-    } else {
-      cb(null, JSON.parse(req.response))
-    }
-  }
-  req.open('GET', url)
-  req.setRequestHeader('authorization', localStorage.token)
-  req.send()
-}
-
-export default ProductStore
+export default ProductStore;
