@@ -6,7 +6,7 @@ const config = {
   entry: './index.jsx',
 
   output: {
-    path: '/public',
+    path: 'public/',
     filename: 'bundle.js',
     publicPath: '/'
   },
@@ -24,7 +24,7 @@ const config = {
   plugins: process.env.NODE_ENV === 'production' ? [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    //new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin()
   ] : []
 
 }
