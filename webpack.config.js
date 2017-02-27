@@ -6,7 +6,7 @@ const config = {
   entry: './index.jsx',
 
   output: {
-    path: 'public/',
+    path: '/public/',
     filename: 'bundle.js',
     publicPath: '/'
   },
